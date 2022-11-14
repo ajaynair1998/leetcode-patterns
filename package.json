@@ -15,7 +15,8 @@
     "prepare": "npm run compile",
     "pretest": "npm run compile",
     "posttest": "npm run lint",
-    "watch": "npx tsc -watch "
+    "watch": "npx tsc -watch ",
+    "index": "node ./build/src/index.js"
   },
   "repository": {
     "type": "git",
