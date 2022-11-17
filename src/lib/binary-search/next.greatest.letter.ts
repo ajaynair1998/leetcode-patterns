@@ -1,5 +1,3 @@
-import { checkIfArrayAndHasElements } from '../../utils/helpers.array';
-
 export const nextGreatestLetter = (
   letters: string[] = ['a', 'c', 'd', 'e'],
   target = 'd'
