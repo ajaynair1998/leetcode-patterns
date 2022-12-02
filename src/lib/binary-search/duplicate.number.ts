@@ -1,11 +1,7 @@
 import { unsortedArrayWithDuplicates } from '../../bin/arrays.mock';
 
 export const findDuplicate = (
-  nums: number[] = [
-    29, 27, 9, 2, 30, 29, 29, 14, 48, 18, 46, 43, 8, 39, 44, 49, 37, 4, 20, 29,
-    36, 38, 29, 29, 42, 41, 22, 7, 47, 25, 11, 33, 29, 16, 35, 45, 29, 28, 3,
-    32, 5, 15, 17, 31, 6, 40, 26, 21, 12, 29
-  ]
+  nums: number[] = unsortedArrayWithDuplicates
 ): number => {
   try {
     nums.sort((a, b) => a - b);
