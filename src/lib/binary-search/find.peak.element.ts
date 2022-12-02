@@ -19,3 +19,23 @@ const findPeakElement = (nums: number[]): number => {
     return 1;
   }
 };
+
+const peakIndexInAMountainArray = (nums: number[]): number => {
+  try {
+    let low = 0;
+    let high = nums.length - 1;
+    while (low < high) {
+      let mid = Math.floor((low + high) / 2);
+      let valueAtMid = nums[mid];
+      if (valueAtMid < nums[mid + 1]) {
+        low = mid + 1;
+      } else {
+        high = mid;
+      }
+    }
+    return low;
+  } catch (err) {
+    console.log(err);
+    return -1;
+  }
+};
