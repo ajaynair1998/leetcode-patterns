@@ -30,7 +30,7 @@ const traverse = (
     } else if (p != null && q != null) {
       traverse(p.left, q.left, isSameTree);
       traverse(p.right, q.right, isSameTree);
-      if (p.left != q.left) {
+      if (p.val != q.val) {
         isSameTree.value = false;
       }
       return;
