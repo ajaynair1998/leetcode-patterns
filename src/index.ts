@@ -1,6 +1,3 @@
-import rangeAddQueries from './lib/weekly.contests/15.JAN.2023/increment.submatrices.by.one';
+import countGood from './lib/weekly.contests/15.JAN.2023/number.of.good.subarrays';
 
-rangeAddQueries(3, [
-  [1, 1, 2, 2],
-  [0, 0, 1, 1]
-]);
+countGood([2, 3, 3, 3, 3, 1, 3, 1, 3, 2], 19);
