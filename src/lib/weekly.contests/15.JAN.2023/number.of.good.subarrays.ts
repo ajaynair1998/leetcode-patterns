@@ -1,3 +1,4 @@
+// INFO : Not the correct solution. couldnt find it
 const countGood = (nums: number[], k: number): number => {
   try {
     let window = new SlidingWindow(k);
@@ -5,11 +6,13 @@ const countGood = (nums: number[], k: number): number => {
     let subArrays = 0;
     for (let head = 0; head < nums.length; head++) {
       window.handleAdd(nums[head]);
+      console.log(window);
       if (window.satisFiesCondition()) {
         subArrays = subArrays + 1;
         while (window.satisFiesCondition() && tail < head) {
           tail++;
           window.handleRemove(nums[tail]);
+          console.log(window);
           if (window.satisFiesCondition()) {
             subArrays = subArrays + 1;
           }
@@ -33,13 +36,15 @@ class SlidingWindow {
   }
 
   public handleAdd(value: number) {
-    let pairsBefore = uniquePairs(this.map[value], 2);
+    let pairsBefore =
+      this.map[value] != undefined ? uniquePairs(this.map[value], 2) : 0;
     if (this.map[value] != undefined) {
       this.map[value] = this.map[value] + 1;
     } else {
       this.map[value] = 1;
     }
-    let currentPairs = uniquePairs(this.map[value], 2);
+    let currentPairs =
+      this.map[value] != undefined ? uniquePairs(this.map[value], 2) : 0;
 
     if (this.map[value] >= 2) {
       this.pairs = this.pairs + currentPairs - pairsBefore;
@@ -47,14 +52,17 @@ class SlidingWindow {
   }
 
   public handleRemove(value: number) {
-    let pairsBefore = uniquePairs(this.map[value], 2);
+    let pairsBefore =
+      this.map[value] != undefined ? uniquePairs(this.map[value], 2) : 0;
     if (this.map[value] != undefined) {
       this.map[value] = this.map[value] - 1;
     } else {
       this.map[value] = 0;
     }
 
-    let currentPairs = uniquePairs(this.map[value], 2);
+    let currentPairs =
+      this.map[value] != undefined ? uniquePairs(this.map[value], 2) : 0;
+
     this.pairs = this.pairs + currentPairs - pairsBefore;
   }
 
